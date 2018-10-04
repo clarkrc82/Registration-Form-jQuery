@@ -20,12 +20,14 @@ body {
 
 header {
 	text-align: center;  
+  text-shadow: 2px 2px 2px white;
 }
 
 h1 {
 	font-size: 2.5em;
-	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.45);
 	margin: 0;
+  text-shadow: 2px 2px 5px white;
+  border-bottom: 2px solid black;
 }
 
 a {
@@ -39,6 +41,8 @@ a {
 form {
 	padding: .875em 1.875em 1.875em;
 	background: #85b5ca;
+  border-radius: 15px;
+  border: 1px solid black;
 }
 
 fieldset,
@@ -88,6 +92,7 @@ input {
 	background: #c1deeb;
 	border: 2px solid #c1deeb;
 	outline: none;
+  border-radius: 5px;
 }
 
 input:focus {
@@ -105,8 +110,9 @@ button {
 	color: #fff;
 	padding: .55em 1.25em;
 	background: #22627e;
-	margin: 1.25em 0 .5em;
+	margin: 1.25em 12.5em .5em;
 	cursor: pointer;
+  border-radius: 5px;
 }
 
 button:hover {
@@ -149,7 +155,12 @@ button:hover {
   clear: both;
 }
 
-
+.blank{
+  border: 2px solid red;
+}
+.temp{
+  color: red;
+}
 
 /* ================================= 
   Media Queries
@@ -160,7 +171,7 @@ button:hover {
 		padding: 2em 0;
 	}
 	button {
-		width: 100%;
+		width: 50%;
 	}
 }
 
