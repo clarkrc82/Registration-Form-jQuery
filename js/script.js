@@ -1,13 +1,13 @@
 // sets autofocus on first text field
 $("#name").focus();
 
-//Hides the "Select Payment Method"
+// Hides the "Select Payment Method"
 $('#payment option:eq(0)').remove();
 
 // Hides other-title input
 $('#other-title').hide();
 
-//Shows the Job Role input when "other" is selected 
+// Shows the Job Role input when "other" is selected 
 $('#title').on('change', function(){ 
   if($(this).val() == "other"){
     $('#other-title').show();
@@ -23,7 +23,7 @@ const $hearts = $('#color option:contains("JS shirt only")');
 const $colors = $('#colors-js-puns');
 $colors.hide();
 
-//Function that shows/hides the available color options by shirt type
+// Function that shows/hides the available color options by shirt type
 $('#design').on('change', function(){
   if($(this).val() === "heart js"){
     $puns.hide();
@@ -49,7 +49,7 @@ $('#design').on('change', function(){
 // Creates an h2 element for activities
 $('.activities').append('<h2></h2>');
 
-//This function adds the total cost of activities and crosses out conflicting activities
+// This function adds the total cost of activities and crosses out conflicting activities
 $('.activities').on('change', function () {
   
     let $total = 0;
@@ -101,7 +101,7 @@ const $bitcoin=$('div p:contains("Bitcoin")');
 $paypal.hide();
 $bitcoin.hide();
 
-//Function for payment options
+// Function for payment options
 $('#payment').on('change', function(){
   if($(this).val() === "paypal"){
     $cc.hide();
@@ -133,7 +133,7 @@ $('#name').focusout(function(){
  });
  
 
-//error message if email is left blank AND email validation
+// error message if email is left blank AND email validation
 $('#mail').focusout(function (){
   const emailVal = /(.+)@(.+){2,}\.(.+){2,}/;
   const emailInput = $('#mail').val();
@@ -180,7 +180,7 @@ $('#cc-num').focusout(function(){
 })
 
 
-//error messages for zip
+// error messages for zip
 $('#zip').focusout(function(){
   const $val = $(this).val().length
   if($(this).val()===''){
