@@ -152,7 +152,7 @@ $('#mail').focusout(function (){
 });
 
 
-// error message if user did not check any Activities
+// error message if user left Activities blank
 $('fieldset:eq(3)').on('click', function (){
   if($('input:checkbox:checked').length===0){
     $('.activities').append('<h3 class="temp">Please select an activity.</h3>');
@@ -163,7 +163,7 @@ $('fieldset:eq(3)').on('click', function (){
 });
 
 
-// error messages if credit card is blank AND if not between 13-16 numbers long
+// error messages if credit card is blank AND if between 13-16 numbers long
 $('#cc-num').focusout(function(){
   const $val = $(this).val().length
   if($(this).val()===''){
