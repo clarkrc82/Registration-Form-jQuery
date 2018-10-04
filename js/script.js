@@ -121,6 +121,7 @@ $('#payment').on('change', function(){
 });
 
 
+// error message if name field is blank.
 $('#name').focusout(function(){
     if($(this).val()===''){
     $(this).addClass('blank');
@@ -130,25 +131,28 @@ $('#name').focusout(function(){
     $('.temp').empty();
   }
  });
+ 
 
-
+//error message if email is left blank AND email validation
 $('#mail').focusout(function (){
   const emailVal = /(.+)@(.+){2,}\.(.+){2,}/;
-  var booking_email = $('#mail').val();
+  const emailInput = $('#mail').val();
   if($(this).val() ===''){
     $(this).addClass('blank');
     $('label[for="mail"]').prepend('<label class="temp">Please enter your email.</label>');
+    return false;
   }else{
     $(this).removeClass('blank');
     $('.temp').empty();
   }
-  if (!emailVal.test(booking_email)){
+  if (!emailVal.test(emailInput)){
     $(this).addClass('blank');
     $('label[for="mail"]').prepend('<label class="temp">Please enter a valid email.</label>');
   } 
 });
 
 
+// error message if user did not check any Activities
 $('fieldset:eq(3)').on('click', function (){
   if($('input:checkbox:checked').length===0){
     $('.activities').append('<h3 class="temp">Please select an activity.</h3>');
@@ -158,6 +162,8 @@ $('fieldset:eq(3)').on('click', function (){
   }
 });
 
+
+// error messages if credit card is blank AND if not between 13-16 numbers long
 $('#cc-num').focusout(function(){
   const $val = $(this).val().length
   if($(this).val()===''){
@@ -173,6 +179,8 @@ $('#cc-num').focusout(function(){
   }
 })
 
+
+//error messages for zip
 $('#zip').focusout(function(){
   const $val = $(this).val().length
   if($(this).val()===''){
@@ -188,6 +196,8 @@ $('#zip').focusout(function(){
   }
 })
 
+
+// error messages for cvv
 $('#cvv').focusout(function(){
   const $val = $(this).val().length
   if($(this).val()===''){
