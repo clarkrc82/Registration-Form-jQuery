@@ -124,7 +124,7 @@ $(function(){
   let ccnum1 = false;
   let zip1 = false;
   let cvv1 = false;
-  let payment = false;
+  let payment = true;
   
 // Checks if name input is blank, gives error message if is
 // Returns its var true if filled out
@@ -232,7 +232,6 @@ $('#zip').focusout(function(){
     $('#ziptext').text("");
     zip1=true
   }
-  console.log("zip:"+ zip1)
 })
 
 // Checks if cvv is blank and the right length
@@ -257,6 +256,10 @@ $('#cvv').focusout(function(){
 // Function for payment options
 // If Paypal or Bitcion is chosen it returns the credit card secion var to true so submit button can function
 $('#payment').on('change', function(){
+  if($(this).val() === "credit card"){
+    $cc.show();
+    payment=true;
+  }
   if($(this).val() === "paypal"){
     $cc.hide();
     $paypal.show();
@@ -277,9 +280,7 @@ $('#payment').on('change', function(){
   }else{
     $bitcoin.hide();
   }
-  if($(this).val() === "credit card"){
-    $cc.show();
-  }
+
 });
 // Submit button FUNCTION
 // If any input var is false it will prevent the button from submitting
