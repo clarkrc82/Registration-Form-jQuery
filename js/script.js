@@ -96,7 +96,7 @@ $('.activities').on('change', function () {
 
 
 // Error messages text elements (hiden)
-// Each has their own id and class attached
+// Each has their own id and class 
 $('label[for="name"]').append('<span id="nametext" class="temp"></span>');
 $('label[for="mail"]').append('<span id="mailtext" class="temp"></span>');
 $('.activities').append('<h2 id="atvtext" class="temp"></h2>');
@@ -106,7 +106,7 @@ $('label[for="cvv"]').append('<span id="cvvtext" class="temp"></span>');
 $('fieldset:eq(3)').append('<label id="btn" class="btn"></label>')
 
 
-// **SUPER FUNCTION**//
+//**VALIDATION FUNCTION**//
 // This function checks the validity of all inputs and Activities in real time
 // And will also display any error messages
 $(function(){
@@ -130,7 +130,7 @@ $(function(){
   
 // Checks if name input is blank, gives error message if is
 // Returns its var true if filled out
-//*****THE NEXT FEW FUNCTIONS ARE BASICALLY THE SAME SO I WONT COMMENT ON THEM AFTER THIS******//
+//*****THE NEXT FEW FUNCTIONS ARE BASICALLY THE SAME SO I WONT COMMENT ON THEM AFTER THIS FUNCTION******//
 $('#name').focusout(function(){
   // Checks if input is blank
     if($(this).val()===''){ 
@@ -215,7 +215,6 @@ $('#cc-num').focusout(function(){
     $(this).removeClass('blank')
     ccnum1=true
   }
-
 })
 
 // Checks if zip is blank and the right length
@@ -280,7 +279,6 @@ $('#payment').on('change', function(){
   }else{
     $bitcoin.hide();
   }
-
 });
 
 // Submit button FUNCTION
