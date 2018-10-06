@@ -94,14 +94,6 @@ $('.activities').on('change', function () {
 });
 
 
-// Variables for payment options
-const $cc=$('#credit-card');
-const $paypal=$('div p:contains("Paypal")');
-const $bitcoin=$('div p:contains("Bitcoin")');
-$paypal.hide();
-$bitcoin.hide();
-
-
 
 // Error messages text elements (hiden)
 // Each has their own id and class attached
@@ -111,6 +103,8 @@ $('.activities').append('<h2 id="atvtext" class="temp"></h2>');
 $('label[for="cc-num"]').append('<span id="cctext" class="temp"></span>');
 $('label[for="zip"]').append('<span id="ziptext" class="temp"></span>');
 $('label[for="cvv"]').append('<span id="cvvtext" class="temp"></span>');
+$('fieldset:eq(3)').append('<label id="btn" class="btn"></label>')
+
 
 // **SUPER FUNCTION**//
 // This function checks the validity of all inputs and Activities in real time
@@ -125,6 +119,14 @@ $(function(){
   let zip1 = false;
   let cvv1 = false;
   let payment = true;
+  
+  // Variables for payment options
+  const $cc=$('#credit-card');
+  const $paypal=$('div p:contains("Paypal")');
+  const $bitcoin=$('div p:contains("Bitcoin")');
+  $paypal.hide();
+  $bitcoin.hide();
+
   
 // Checks if name input is blank, gives error message if is
 // Returns its var true if filled out
@@ -175,6 +177,14 @@ $('#mail').focusout(function (){
 // Checks if email input was skipped over
 // Checks if Activites is checked
 $('fieldset:eq(3)').on('click', function (){
+  if($('input:checkbox:checked').length===0){
+    $('#atvtext').text("Please register for an activity")
+    fieldset1 = false;
+  }else{
+    $('#atvtext').text("")
+  }if($('input:checkbox:checked').length>0){
+    fieldset1 = true;
+  }
   if($('#mail').val()===''){
     $('#mail').addClass('blank');
     $('#mailtext').text("Please enter your email"); 
@@ -185,17 +195,9 @@ $('fieldset:eq(3)').on('click', function (){
     $('#mailtext').text("");
     email1=true
   }
-  if($('input:checkbox:checked').length===0){
-    $('#atvtext').text("Please register for an activity")
-    fieldset1 = false;
-  }else{
-    $('#atvtext').text("")
-  }if($('input:checkbox:checked').length>0){
-    fieldset1 = true;
-  }
 });
 
-// Checks if credit card is blank AND if between 13-16 numbers long
+// Checks if credit card is blank AND if between 13-16 NUMBERS long
 $('#cc-num').focusout(function(){
   const $val = $(this).val().length
   if($(this).val()===''){
@@ -206,13 +208,14 @@ $('#cc-num').focusout(function(){
   }else{
     $('#cctext').text("");
   }
-  if(($val<13)||($val>16)){
+  if(($val<13)||($val>16)||!$.isNumeric($('#cc-num').val())){
     $(this).addClass('blank');
     $('#cctext').text("Please enter a number that is between 13 and 16 digits long");
   }else{
     $(this).removeClass('blank')
-    ccnum1=true;
+    ccnum1=true
   }
+
 })
 
 // Checks if zip is blank and the right length
@@ -258,12 +261,10 @@ $('#cvv').focusout(function(){
 $('#payment').on('change', function(){
   if($(this).val() === "credit card"){
     $cc.show();
-    payment=true;
   }
   if($(this).val() === "paypal"){
     $cc.hide();
     $paypal.show();
-    payment=true;
     ccnum1=true;
     zip1=true;
     cvv1=true;
@@ -273,7 +274,6 @@ $('#payment').on('change', function(){
   if($(this).val() === "bitcoin"){
     $('#credit-card').hide();
     $bitcoin.show();
-    payment=true;
     ccnum1=true;
     zip1=true;
     cvv1=true;
@@ -282,11 +282,13 @@ $('#payment').on('change', function(){
   }
 
 });
+
 // Submit button FUNCTION
 // If any input var is false it will prevent the button from submitting
   $('button').click(function(e){
     if((name1===false)||(email1===false)||(fieldset1===false)||(ccnum1===false)||(zip1===false)||(cvv1===false)||(payment===false)){
      e.preventDefault();
+     $('#btn').text("Please fill out all fields");
    }
   }); 
 });

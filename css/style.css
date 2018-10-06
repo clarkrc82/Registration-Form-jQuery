@@ -161,6 +161,10 @@ button:hover {
 .temp{
   color: red;
 }
+.btn{
+  color: red;
+  text-align: center;
+}
 .atv{
   color: #870812;
   text-decoration: line-through;
