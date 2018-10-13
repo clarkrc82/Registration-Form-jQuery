@@ -27,7 +27,7 @@ $colors.hide();
 $('#design').on('change', function(){
   if($(this).val() === "heart js"){
     $puns.hide();
-    $hearts.prop('selected', true);
+    $hearts.  prop('selected', true);
     $colors.show()
   }else {
     $puns.show();
@@ -162,7 +162,6 @@ $('#mail').focusout(function (){
   }else{
     $(this).removeClass('blank');
     $('#mailtext').text("");
-    email1=true
   }
   if (!emailVal.test(emailInput)){
     $(this).addClass('blank');
@@ -257,7 +256,7 @@ $('#cvv').focusout(function(){
 
 // Function for payment options
 // If Paypal or Bitcion is chosen it returns the credit card secion var to true so submit button can function
-$('#payment').on('change', function(){
+$('#payment').on('change', ()=>{
   if($(this).val() === "credit card"){
     $cc.show();
   }
