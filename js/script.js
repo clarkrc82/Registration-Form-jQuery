@@ -230,9 +230,9 @@ $(function(){
     }else{
       $('#cctext').text("");
     }
-    if(($val<13)||($val>16)||!$.isNumeric($('#cc-num').val())){
+    if(($val<13)||($val>19)||!$.isNumeric($('#cc-num').val())){
       $(this).addClass('blank');
-      $('#cctext').text("Please enter a number that is between 13 and 16 digits long");
+      $('#cctext').text("Please enter a number that is between 13 and 19 digits long");
     }else{
       $(this).removeClass('blank')
       ccnum1=true

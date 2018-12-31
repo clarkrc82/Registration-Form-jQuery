@@ -1,15 +1,21 @@
-# Techdegree project 3
-About this Project
-In this project, you'll use JavaScript to enhance an interactive registration form for a fictional conference called "FullStack Conf."
+# About this Project
 
-Using the supplied HTML and CSS files, you'll add your own JavaScript to make the form more user-friendly by:
 
-adding customized and conditional behavior and interactivity
-validating user input and providing helpful error messages when the user enters invalid information into the form fields.
-Instead of plain "vanilla" JavaScript, you'll use the popular jQuery library to complete this project. While it's important for a developer to have a solid understanding and familiarity of plain vanilla JavaScript, it's also important to be able to understand and work with jQuery since it is so common and prevalent on the web.
+This is a registration form for a made-up tech conference. The idea is to fill out all input fields, sign up for workshops and chose your payment option. All fields must be filled out and valid before submitting.
 
-The benefits of using jQuery are:
+Submitting validations are:
+*	Name 
+*	Valid email
+*	At least one workshop is chosen
+*	Payment option is selected.
 
-Shorter and simplified syntax
-Help with cross-browser compatibility since jQuery deals with a lot of that stuff under the hood
-A strong familiarity with jQuery will only make you a better developer since it enjoys a strong market share on the web
+The payment option has 3 choices, credit card, PayPal and Bitcoin. The credit card option has validation as well. Credit card number must be between 13 and 19 digits, zip code must be 5 digits and ccv must be 3 digits. If either PayPal or Bitcoin is chosen, then the credit card field is hidden and a short message is displayed that the user will be redirected to either site when selecting the “Register” button. **NOTE: this will not happen.** Maybe in the future I will add links to PayPal and Bitcoin but for now it was a practice for selecting different payment options.
+
+It was built with **jQuery**, **HTML** and **CSS** with the focus being on **jQuery** and the **DOM**.  I could have done this in **JavaScript** but I chose not to because I wanted to learn and use **jQuery** for at least one project.
+
+I also did not go to heavily into CSS. I wanted to keep it simple and plain. Maybe in the future I will change the look around but for now I will leave it as it is.
+
+# What I could have done differently
+
+**Object Oriented Programming** was not used in this project. At the time I wrote the program I was not comfortable with using O.O.P..  Building the validation and error messages with classes would have been the better option because I violated the “DRY” principle quite a few times.  
+
