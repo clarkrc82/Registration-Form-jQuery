@@ -1,3 +1,4 @@
+![Full_Stack_Conference](https://user-images.githubusercontent.com/39920381/202638111-3d442708-5832-40b6-87cf-decb42d49b9a.png)
 # About this Project
 
 This is a registration form for a made-up tech conference. The idea is to fill out all input fields, sign up for workshops and chose your payment option. All fields must be filled out and valid before submitting.
